@@ -41,7 +41,7 @@ export default function Ambience() {
           </p>
           <div className="mt-8">
             <Button href="/locations" variant="cream">
-              Visit a Location
+              Visit Our Location
             </Button>
           </div>
         </div>

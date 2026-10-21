@@ -24,7 +24,7 @@ export default function MenuPage() {
         <Button href="#menu">Browse the Menu</Button>
       </PageHero>
       <MenuBrowser />
-      <CTABand title="Still" accent="hungry?" text="Explore more dishes on our menu, or place your order online for pickup or delivery." secondary={{ href: "/locations", label: "Find a Location" }} />
+      <CTABand title="Still" accent="hungry?" text="Explore more dishes on our menu, or place your order online for pickup or delivery." secondary={{ href: "/locations", label: "Find Our Location" }} />
     </>
   );
 }

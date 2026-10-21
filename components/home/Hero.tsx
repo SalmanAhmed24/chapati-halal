@@ -13,10 +13,10 @@ export default function Hero() {
             <span className="h-px w-10 bg-leaf" aria-hidden />
             {site.tagline}
           </p>
-          <h1 className="font-display mt-6 text-[clamp(3rem,8.4vw,8.4rem)] font-medium leading-[0.92] tracking-[-0.035em] text-forest">
+          <h1 className="font-display mt-6 text-[clamp(2.7rem,6.4vw,6.8rem)] font-medium leading-[0.92] tracking-[-0.035em] text-forest">
             <span className="split-line block">
               <span className="hero-line block" style={{ animationDelay: "0.1s" }}>
-                Authentic
+                Authentic Halal
               </span>
             </span>
             <span className="split-line block">
@@ -31,8 +31,8 @@ export default function Hero() {
             </span>
           </h1>
           <p className="hero-in mt-8 max-w-md text-lg leading-relaxed text-muted" style={{ animationDelay: "0.4s" }}>
-            A perfect blend of rich spices, traditional recipes and warm hospitality. Fresh, 100% halal food — made with love, served across three
-            neighbourhoods.
+            A perfect blend of rich spices, traditional recipes and warm hospitality. Fresh, 100% halal food — made with love in the heart of
+            El Poblado, Medellín.
           </p>
           <div className="hero-in mt-9 flex flex-wrap gap-3" style={{ animationDelay: "0.5s" }}>
             <Button href={site.orderUrl}>Order Online</Button>

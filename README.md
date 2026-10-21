@@ -16,11 +16,11 @@ Requires Node 20+. Deploys to Vercel with zero config.
 
 | Route        | What's on it |
 |--------------|--------------|
-| `/`          | Hero, spice marquee, promise, pinned horizontal "Popular dishes", story + counters, menu-category list with cursor-following photos, full-bleed ambience reveal, testimonials, locations, CTA |
+| `/`          | Hero, spice marquee, promise, pinned horizontal "Popular dishes", story + counters, menu-category list with cursor-following photos, full-bleed ambience reveal, testimonials, CTA |
 | `/about`     | Story, mission & values, ingredients, chef's philosophy |
 | `/menu`      | Sticky category bar with scroll-spy, veg-only filter, dish cards |
 | `/gallery`   | Filterable masonry grid with a shared-element lightbox (keyboard: ← → Esc) |
-| `/locations` | All branches with hours, phone and Google Maps directions |
+| `/locations` | Medellín location (address, hours, phone, directions) beside a message form |
 | `/contact`   | Contact channels, opening hours, validated form (`/api/contact`) |
 
 ## Motion system
@@ -37,8 +37,8 @@ Requires Node 20+. Deploys to Vercel with zero config.
 All copy, prices, locations, testimonials and gallery entries are in **`lib/data.ts`**.
 
 - **Photos are placeholders.** They are cropped from the design mockups, so they are low-resolution. Replace each file in `public/images/` with a real photo **of the same name**. Use landscape images at least 1600px wide, about 4:3. Next.js resizes them and serves AVIF/WebP automatically.
-- **Prices** follow the mockups (`$48.000`). Change them in `lib/data.ts` if you are pricing in USD.
-- **Locations**: only Chambersburg comes from the mockups. Hagerstown and Harrisburg are sample branches.
+- **Prices** follow the mockups (`$48.000`, Colombian pesos).
+- **Hours**: Mon–Sat 12:00 PM – 8:30 PM. Sunday is shown as closed; change `weeklyHours` and `locations[0].hours` if that's wrong.
 - **Testimonials** reuse the mockup quotes plus one sample. Use real reviews before you launch.
 - **Order Online** links to `/menu`. Point `site.orderUrl` at your ordering platform.
 - **Contact form**: `app/api/contact/route.ts` validates the input and returns success. Connect your email provider where the `TODO` is.

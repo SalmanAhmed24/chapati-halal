@@ -2,7 +2,7 @@ import { ParallaxImage, RevealText, FadeUp, Counter } from "../motion";
 import Button from "../Button";
 
 const stats = [
-  { to: 3, suffix: "", label: "Neighbourhood kitchens" },
+  { to: 6, suffix: "", label: "Days a week, fresh" },
   { to: 40, suffix: "+", label: "Dishes on the menu" },
   { to: 100, suffix: "%", label: "Halal, always" },
   { to: 12000, suffix: "+", label: "Chapati baked monthly" },

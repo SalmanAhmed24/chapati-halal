@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 import ContactForm from "@/components/contact/ContactForm";
 import { FadeUp, RevealText } from "@/components/motion";
 import { Bag, Chef, Clock, Halal, Mail, People, Phone, Pin } from "@/components/Icons";
-import { locations, site, weeklyHours } from "@/lib/data";
+import { site, weeklyHours } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const channels = [
   { icon: Phone, title: "Call Us", value: site.phone, href: site.phoneHref, note: "Happy to help with orders and enquiries." },
   { icon: Mail, title: "Email Us", value: site.email, href: `mailto:${site.email}`, note: "We usually respond within 24 hours." },
-  { icon: Pin, title: "Visit Us", value: locations[0].address, href: "/locations", note: "Come and enjoy an authentic dining experience." },
+  { icon: Pin, title: "Visit Us", value: "Vega10, El Poblado, Medellín", href: "/locations", note: "Come and enjoy an authentic dining experience." },
   { icon: Bag, title: "Order Online", value: "Pickup or delivery", href: site.orderUrl, note: "Your favourite dishes, from the comfort of home." },
 ];
 
@@ -25,7 +25,7 @@ const why = [
   { icon: Chef, title: "Authentic Cuisine", text: "Traditional Indian & Pakistani flavours" },
   { icon: People, title: "Family Friendly", text: "A warm and welcoming environment" },
   { icon: Halal, title: "Halal Food", text: "Prepared with care" },
-  { icon: Pin, title: "Convenient Locations", text: "Easy to find, with ample parking" },
+  { icon: Pin, title: "Convenient Location", text: "Easy to find, with ample parking" },
 ];
 
 export default function ContactPage() {
@@ -67,7 +67,7 @@ export default function ContactPage() {
             <RevealText className="font-display text-[clamp(2.2rem,4.6vw,4rem)] font-medium leading-none text-forest">
               Opening <span className="font-italic-display text-saffron-ink">hours</span>
             </RevealText>
-            <p className="mt-4 text-muted">We look forward to serving you — hours apply to all locations.</p>
+            <p className="mt-4 text-muted">We look forward to serving you — see you soon in El Poblado.</p>
             <FadeUp>
               <dl className="mt-8 divide-y divide-forest/10 rounded-[22px] bg-cream-2/80 px-6 py-2">
                 {weeklyHours.map((h) => (

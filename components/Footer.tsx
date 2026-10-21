@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { nav, site, locations } from "@/lib/data";
+import { nav, site } from "@/lib/data";
 import Logo from "./Logo";
 import { Mail, Phone, Pin, Social } from "./Icons";
 import FooterWordmark from "./FooterWordmark";
@@ -35,9 +35,9 @@ export default function Footer() {
             <li className="flex gap-3">
               <Pin size={20} className="mt-0.5 shrink-0 text-saffron" />
               <span>
-                {locations.length} locations — flagship at
-                <br />
-                {locations[0].address}
+                <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-saffron">
+                  {site.address}
+                </a>
               </span>
             </li>
             <li className="flex gap-3">

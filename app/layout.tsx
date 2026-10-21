@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import ClientExtras from "@/components/ClientExtras";
 import MotionProvider from "@/components/MotionProvider";
-import { site, locations } from "@/lib/data";
+import { site } from "@/lib/data";
 
 const fraunces = localFont({
   src: "./fonts/Fraunces.woff2",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     template: "%s · Chapati Halal",
   },
   description: site.description,
-  keywords: ["halal restaurant", "Pakistani food", "Indian food", "biryani", "chapati", "karahi", "Chambersburg"],
+  keywords: ["halal restaurant", "Pakistani food", "Indian food", "biryani", "chapati", "karahi", "Medellín", "El Poblado"],
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -68,12 +68,15 @@ const jsonLd = {
   email: site.email,
   priceRange: "$$",
   image: `${site.url}/og.jpg`,
-  department: locations.map((l) => ({
-    "@type": "Restaurant",
-    name: `${site.name} — ${l.name}`,
-    address: l.address,
-    telephone: l.phone,
-  })),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Centro Comercial Vega10, Cra. 48 #7-298, Local 103",
+    addressLocality: "Medellín",
+    addressRegion: "Antioquia",
+    addressCountry: "CO",
+  },
+  hasMap: site.mapsUrl,
+  openingHours: "Mo-Sa 12:00-20:30",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

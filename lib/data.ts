@@ -7,9 +7,11 @@ export const site = {
   description:
     "Chapati Halal brings together the rich culinary traditions of India and Pakistan — 100% halal biryani, curries, karahi and fresh-baked chapati, made with love.",
   url: "https://www.chapatihalal.com",
-  phone: "+1 (271) 555-0123",
-  phoneHref: "tel:+12715550123",
-  email: "info@chapatihalal.com",
+  phone: "+57 300 2270959",
+  phoneHref: "tel:+573002270959",
+  email: "chapatihalal273@gmail.com",
+  address: "Centro Comercial Vega10, Cra. 48 #7-298, Local 103, El Poblado, Medellín, Antioquia, Colombia",
+  mapsUrl: "https://maps.app.goo.gl/5N4bgVQwH7VuVHYz6",
   orderUrl: "/menu",
   social: [
     { label: "Facebook", href: "https://facebook.com" },
@@ -154,33 +156,36 @@ export type Location = {
   name: string;
   address: string;
   phone: string;
-  mapsQuery: string;
+  mapsUrl: string;
   img: string;
-  flagship?: boolean;
   hours: { days: string; time: string }[];
 };
 
-const stdHours = [
-  { days: "Mon – Thu", time: "11:00 AM – 10:00 PM" },
-  { days: "Fri – Sat", time: "11:00 AM – 11:00 PM" },
-  { days: "Sunday", time: "11:00 AM – 10:00 PM" },
-];
-
-// NOTE: only the Chambersburg address comes from the brand mockups — the others are sample branches.
-export const locations: Location[] = [
-  { slug: "chambersburg", city: "Chambersburg, PA", name: "Chambersburg Flagship", address: "123 Main Street, Chambersburg, PA, USA", phone: "+1 (271) 555-0123", mapsQuery: "123 Main Street Chambersburg PA", img: "/images/storefront-night.jpg", flagship: true, hours: stdHours },
-  { slug: "hagerstown", city: "Hagerstown, MD", name: "Hagerstown", address: "45 Potomac Street, Hagerstown, MD, USA", phone: "+1 (271) 555-0145", mapsQuery: "Potomac Street Hagerstown MD", img: "/images/storefront-day.jpg", hours: stdHours },
-  { slug: "harrisburg", city: "Harrisburg, PA", name: "Harrisburg Midtown", address: "210 N 3rd Street, Harrisburg, PA, USA", phone: "+1 (271) 555-0168", mapsQuery: "N 3rd Street Harrisburg PA", img: "/images/interior-warm.jpg", hours: stdHours },
-];
-
+// Opening hours. Sunday wasn't specified, so it is shown as closed.
 export const weeklyHours = [
-  { day: "Monday", time: "11:00 AM – 10:00 PM" },
-  { day: "Tuesday", time: "11:00 AM – 10:00 PM" },
-  { day: "Wednesday", time: "11:00 AM – 10:00 PM" },
-  { day: "Thursday", time: "11:00 AM – 10:00 PM" },
-  { day: "Friday", time: "11:00 AM – 11:00 PM" },
-  { day: "Saturday", time: "11:00 AM – 11:00 PM" },
-  { day: "Sunday", time: "11:00 AM – 10:00 PM" },
+  { day: "Monday", time: "12:00 PM – 8:30 PM" },
+  { day: "Tuesday", time: "12:00 PM – 8:30 PM" },
+  { day: "Wednesday", time: "12:00 PM – 8:30 PM" },
+  { day: "Thursday", time: "12:00 PM – 8:30 PM" },
+  { day: "Friday", time: "12:00 PM – 8:30 PM" },
+  { day: "Saturday", time: "12:00 PM – 8:30 PM" },
+  { day: "Sunday", time: "Closed" },
+];
+
+export const locations: Location[] = [
+  {
+    slug: "medellin",
+    city: "El Poblado, Medellín",
+    name: "Chapati Halal Medellín",
+    address: "Centro Comercial Vega10, Cra. 48 #7-298, Local 103, El Poblado, Medellín, Antioquia, Colombia",
+    phone: "+57 300 2270959",
+    mapsUrl: "https://maps.app.goo.gl/5N4bgVQwH7VuVHYz6",
+    img: "/images/storefront-night.jpg",
+    hours: [
+      { days: "Mon – Sat", time: "12:00 PM – 8:30 PM" },
+      { days: "Sunday", time: "Closed" },
+    ],
+  },
 ];
 
 export type GalleryItem = { src: string; alt: string; cat: "food" | "interior" | "exterior" | "dining"; tall?: boolean; wide?: boolean };
@@ -209,8 +214,8 @@ export const gallery: GalleryItem[] = [
 ];
 
 export const values = [
-  { title: "Authentic Flavours", text: "Recipes from Lahore, Karachi and Delhi kitchens — no shortcuts.", icon: "leaf" },
+  { title: "Authentic Flavours", text: "Recipes from Lahore, Karachi and Delhi kitchens — no shortcuts.", icon: "chef" },
   { title: "100% Halal", text: "Every cut, every stock, every sauce — certified and prepared with care.", icon: "halal" },
-  { title: "Community First", text: "A long table for families, friends and anyone who's hungry.", icon: "people" },
+  { title: "Vegetarian Choices", text: "From comforting dal tadka to flavourful paneer dishes and fresh vegetable curries, there’s something delicious for every vegetarian.", icon: "leaf" },
   { title: "Quality Ingredients", text: "Whole spices toasted in-house; produce bought fresh every morning.", icon: "hand" },
 ] as const;

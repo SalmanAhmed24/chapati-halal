@@ -15,7 +15,7 @@ export default function CTABand({
   title = "Craving authentic",
   accent = "Indian & Pakistani food?",
   text = "Order online, visit us, or call for takeout and delivery. The tandoor is already hot.",
-  secondary = { href: "/locations", label: "Find a Location" },
+  secondary = { href: "/locations", label: "Find Our Location" },
 }: Props) {
   return (
     <section className="jaali relative overflow-hidden text-cream">

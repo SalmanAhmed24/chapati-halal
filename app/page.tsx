@@ -6,12 +6,11 @@ import Story from "@/components/home/Story";
 import CategoryList from "@/components/home/CategoryList";
 import Ambience from "@/components/home/Ambience";
 import Testimonials from "@/components/home/Testimonials";
-import LocationsTeaser from "@/components/home/LocationsTeaser";
 import CTABand from "@/components/CTABand";
 import { Marquee } from "@/components/motion";
 import { Suspense } from "react";
 
-const words = ["Biryani", "Karahi", "Chapati", "Seekh Kebab", "Nihari", "Samosa", "Mango Lassi", "Gulab Jamun"];
+const words = ["Biryani", "Karahi", "Chapati", "BBQ", "Dal", "Samosa", "Mango Lassi", "Gulab Jamun"];
 
 export default function Home() {
   return (
@@ -49,9 +48,6 @@ export default function Home() {
       </Suspense>
       <Suspense>
         <Testimonials />
-      </Suspense>
-      <Suspense>
-        <LocationsTeaser />
       </Suspense>
       <Suspense>
         <CTABand />
