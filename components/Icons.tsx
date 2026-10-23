@@ -59,6 +59,34 @@ export const Close = ({ size, ...p }: P) => (
   <svg {...base(size)} {...p}><path d="M6 6l12 12M18 6 6 18" /></svg>
 );
 
+export const Briefcase = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 12h18" /></svg>
+);
+export const Confetti = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><path d="m4 20 4-11 7 7-11 4Z" /><path d="M13 3v2M19 5l-1.5 1.5M21 11h-2M15 8l1-1M17 13l1 1" /></svg>
+);
+export const Gift = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M5 12v8h14v-8M12 8v12M12 8S10.5 4 8.5 4a2 2 0 0 0 0 4M12 8s1.5-4 3.5-4a2 2 0 0 1 0 4" /></svg>
+);
+export const Calendar = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M16 3v4M8 3v4M3 10h18M8 14h2M14 14h2M8 17h2" /></svg>
+);
+export const Clipboard = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><rect x="5" y="4" width="14" height="17" rx="2" /><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3" /></svg>
+);
+export const CheckCircle = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><circle cx="12" cy="12" r="9" /><path d="m8 12 3 3 5-6" /></svg>
+);
+export const Utensils = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><path d="M6 3v7a2 2 0 0 0 4 0V3M8 10v11M16 21V3c-2 1-3 4-3 7h3" /></svg>
+);
+export const Headset = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><path d="M4 14v-2a8 8 0 0 1 16 0v2" /><rect x="3" y="14" width="4" height="6" rx="1.5" /><rect x="17" y="14" width="4" height="6" rx="1.5" /><path d="M19 20a4 4 0 0 1-4 2h-2" /></svg>
+);
+export const Bowl = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><path d="M3 11h18a9 9 0 0 1-18 0Z" /><path d="M8 8c0-1.5 1-2 1-3.5M12 8c0-1.5 1-2 1-3.5M16 8c0-1.5 1-2 1-3.5" /></svg>
+);
+
 export const Social = {
   Facebook: (p: P) => (
     <svg width={20} height={20} viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}><path d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z" /></svg>

@@ -78,7 +78,7 @@ export default function SignatureScroll() {
               data-cursor="Taste"
               className="group relative w-[78vw] shrink-0 snap-start sm:w-[46vw] lg:w-[min(30vw,440px)]"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] grain">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[28px]">
                 <div data-card-img className="absolute inset-[0_-10%]">
                   <Image
                     src={d.img}

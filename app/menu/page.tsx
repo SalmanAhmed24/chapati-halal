@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Menu",
-  description: "Biryani, curries, karahi, BBQ, fresh chapati, snacks, desserts and lassi — the full Chapati Halal menu.",
+  description: "Biryani, karahi, curries, BBQ, shawarma, paratha, samosas, sweets and drinks — the full Chapati Halal menu.",
   alternates: { canonical: "/menu" },
 };
 
@@ -18,8 +18,10 @@ export default function MenuPage() {
         line1="A taste of"
         line2="India & Pakistan."
         text="Explore our flavourful menu of authentic Indian and Pakistani dishes, prepared with fresh ingredients, traditional spices and a whole lot of love."
-        img="/images/hero-biryani.jpg"
-        alt="Beef biryani in a black bowl with fresh herbs"
+        img="/images/menu-hero.jpg"
+        alt="Beef biryani in a copper bowl with fresh mint, curries, naan and raita"
+        grain={false}
+        imgClassName="object-[50%_40%]"
       >
         <Button href="#menu">Browse the Menu</Button>
       </PageHero>

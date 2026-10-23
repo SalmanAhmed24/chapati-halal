@@ -7,8 +7,8 @@ export default function Manifesto() {
       <div className="container-x grid gap-12 md:grid-cols-[180px_1fr] lg:grid-cols-[260px_1fr]">
         <FadeUp>
           <p className="eyebrow text-saffron-ink">Our promise</p>
-          <div className="relative mt-6 hidden aspect-[3/4] w-full overflow-hidden rounded-[999px_999px_20px_20px] md:block grain">
-            <Image src="/images/chef.jpg" alt="Chef finishing a dish with a sprinkle of spices" fill sizes="260px" className="object-cover" />
+          <div className="relative mt-6 aspect-[3/4] w-full max-w-[280px] overflow-hidden rounded-[999px_999px_20px_20px] md:max-w-none">
+            <Image src="/images/promise-chef.jpg" alt="Chef sprinkling spices over a plate of chicken tikka with naan and salad" fill sizes="(min-width:1024px) 260px, (min-width:768px) 180px, 280px" className="object-cover" />
           </div>
         </FadeUp>
         <div>

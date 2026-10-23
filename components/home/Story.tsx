@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ParallaxImage, RevealText, FadeUp, Counter } from "../motion";
 import Button from "../Button";
 
@@ -13,14 +14,19 @@ export default function Story() {
     <section className="relative py-24 md:py-36">
       <div className="container-x grid items-center gap-12 md:grid-cols-2 lg:gap-24">
         <div className="relative">
-          <ParallaxImage
-            src="/images/storefront-night.jpg"
-            alt="The Chapati Halal terrace glowing at night"
-            sizes="(min-width: 768px) 48vw, 92vw"
-            wrapperClassName="aspect-[4/5] rounded-[28px]"
-          />
-          <FadeUp delay={0.2} className="absolute -bottom-8 -right-3 w-40 overflow-hidden rounded-2xl border-[6px] border-cream shadow-xl md:-right-10 md:w-52">
-            <ParallaxImage src="/images/spices.jpg" alt="Bowls of whole and ground spices" sizes="208px" wrapperClassName="aspect-square" reveal={false} strength={6} />
+          <FadeUp y={60}>
+            <div className="group relative aspect-[3/2] overflow-hidden rounded-[28px] shadow-[0_40px_80px_-40px_rgba(14,59,44,.45)]">
+              <Image
+                src="/images/story-storefront.jpg"
+                alt="The Chapati Halal counter with its illuminated sign, food displays and juice bar"
+                fill
+                sizes="(min-width: 768px) 48vw, 92vw"
+                className="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
+              />
+            </div>
+          </FadeUp>
+          <FadeUp delay={0.2} className="absolute -bottom-16 -right-10 hidden w-44 overflow-hidden rounded-2xl border-[6px] border-cream shadow-xl lg:block">
+            <ParallaxImage src="/images/spices.jpg" alt="Bowls of whole and ground spices" sizes="176px" wrapperClassName="aspect-square" reveal={false} strength={6} />
           </FadeUp>
         </div>
 

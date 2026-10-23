@@ -16,9 +16,10 @@ Requires Node 20+. Deploys to Vercel with zero config.
 
 | Route        | What's on it |
 |--------------|--------------|
-| `/`          | Hero, spice marquee, promise, pinned horizontal "Popular dishes", story + counters, menu-category list with cursor-following photos, full-bleed ambience reveal, testimonials, CTA |
+| `/`          | Hero, spice marquee, promise, pinned horizontal "Popular dishes", story + counters, menu-category list with cursor-following photos, catering banner, full-bleed ambience reveal, testimonials, CTA |
 | `/about`     | Story, mission & values, ingredients, chef's philosophy |
 | `/menu`      | Sticky category bar with scroll-spy, veg-only filter, dish cards |
+| `/catering`  | Catering hero, occasions, tabbed catering menu, packages, how-it-works, quote request form (`/api/catering`) |
 | `/gallery`   | Filterable masonry grid with a shared-element lightbox (keyboard: ← → Esc) |
 | `/locations` | Medellín location (address, hours, phone, directions) beside a message form |
 | `/contact`   | Contact channels, opening hours, validated form (`/api/contact`) |
@@ -41,6 +42,7 @@ All copy, prices, locations, testimonials and gallery entries are in **`lib/data
 - **Hours**: Mon–Sat 12:00 PM – 8:30 PM. Sunday is shown as closed; change `weeklyHours` and `locations[0].hours` if that's wrong.
 - **Testimonials** reuse the mockup quotes plus one sample. Use real reviews before you launch.
 - **Order Online** links to `/menu`. Point `site.orderUrl` at your ordering platform.
+- **Catering quotes**: `app/api/catering/route.ts` validates requests; connect it to email where the `TODO` is.
 - **Contact form**: `app/api/contact/route.ts` validates the input and returns success. Connect your email provider where the `TODO` is.
 - Update `site.url` in `lib/data.ts` to your real domain. It is used for the canonical URL, the sitemap and Open Graph.
 

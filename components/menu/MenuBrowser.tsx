@@ -108,7 +108,7 @@ export default function MenuBrowser() {
                     transition={{ duration: 0.7, delay: (i % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
                     className="group flex flex-col overflow-hidden rounded-[22px] border border-forest/10 bg-cream shadow-[0_1px_0_rgba(14,59,44,.04)] transition-shadow duration-500 hover:shadow-[0_30px_60px_-30px_rgba(14,59,44,.45)]"
                   >
-                    <div className="relative aspect-[16/10] overflow-hidden grain">
+                    <div className="relative aspect-[4/3] overflow-hidden">
                       <Image src={item.img} alt={item.name} fill sizes="(min-width:1024px) 30vw, (min-width:640px) 46vw, 92vw" className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-110" />
                       <div className="absolute left-3 top-3 flex gap-1.5">
                         {item.veg && (
@@ -126,7 +126,7 @@ export default function MenuBrowser() {
                     <div className="flex flex-1 flex-col p-6">
                       <div className="flex items-start justify-between gap-4">
                         <h3 className="font-display text-2xl leading-tight text-forest">{item.name}</h3>
-                        <span className="shrink-0 rounded-full bg-saffron px-3 py-1 text-sm font-extrabold text-ink">{item.price}</span>
+                        {item.price && <span className="shrink-0 rounded-full bg-saffron px-3 py-1 text-sm font-extrabold text-ink">{item.price}</span>}
                       </div>
                       <p className="mt-3 text-sm leading-relaxed text-muted">{item.desc}</p>
                     </div>

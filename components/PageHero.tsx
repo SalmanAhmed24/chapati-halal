@@ -9,10 +9,12 @@ type Props = {
   img: string;
   alt: string;
   children?: React.ReactNode;
+  grain?: boolean;
+  imgClassName?: string;
 };
 
 /** Shared hero for inner pages. Line reveal is pure CSS so it starts on first paint (good for LCP). */
-export default function PageHero({ eyebrow, line1, line2, text, img, alt, children }: Props) {
+export default function PageHero({ eyebrow, line1, line2, text, img, alt, children, grain = true, imgClassName = "" }: Props) {
   return (
     <section className="relative overflow-hidden pt-[calc(var(--header-h)+2.5rem)] pb-16 md:pb-24">
       <HeroDecor />
@@ -43,8 +45,8 @@ export default function PageHero({ eyebrow, line1, line2, text, img, alt, childr
           )}
         </div>
         <div className="hero-img relative aspect-[4/3.4] md:aspect-[4/4.3]">
-          <div className="arch grain relative h-full w-full overflow-hidden">
-            <Image src={img} alt={alt} fill priority sizes="(min-width: 768px) 46vw, 92vw" className="hero-zoom object-cover" />
+          <div className={`arch relative h-full w-full overflow-hidden ${grain ? "grain" : ""}`}>
+            <Image src={img} alt={alt} fill priority sizes="(min-width: 768px) 46vw, 92vw" className={`hero-zoom object-cover ${imgClassName}`} />
           </div>
         </div>
       </div>

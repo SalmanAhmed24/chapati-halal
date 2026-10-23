@@ -5,6 +5,7 @@ import SignatureScroll from "@/components/home/SignatureScroll";
 import Story from "@/components/home/Story";
 import CategoryList from "@/components/home/CategoryList";
 import Ambience from "@/components/home/Ambience";
+import CateringBanner from "@/components/home/CateringBanner";
 import Testimonials from "@/components/home/Testimonials";
 import CTABand from "@/components/CTABand";
 import { Marquee } from "@/components/motion";
@@ -42,6 +43,9 @@ export default function Home() {
       </Suspense>
       <Suspense>
         <CategoryList />
+      </Suspense>
+      <Suspense>
+        <CateringBanner />
       </Suspense>
       <Suspense>
         <Ambience />

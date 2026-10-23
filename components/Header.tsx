@@ -14,6 +14,9 @@ export default function Header() {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
+  // Pages whose hero sits on dark green: show light nav text until the header gets its cream background.
+  const darkHero = ["/catering"].includes(pathname);
+  const light = darkHero && !scrolled && !open;
 
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
@@ -43,7 +46,7 @@ export default function Header() {
         >
           <Link href="/" className="relative z-[60] block w-[104px] sm:w-[118px]">
             <span className="sr-only">Chapati Halal home</span>
-            <Logo tone={open ? "light" : "dark"} />
+            <Logo tone={open || light ? "light" : "dark"} />
           </Link>
 
           <nav aria-label="Primary" className="hidden lg:block">
@@ -55,7 +58,7 @@ export default function Header() {
                     <Link
                       href={n.href}
                       aria-current={active ? "page" : undefined}
-                      className="relative block px-4 py-2 text-[0.92rem] font-semibold text-forest transition-colors hover:text-saffron-ink"
+                      className={`relative block px-4 py-2 text-[0.92rem] font-semibold transition-colors ${light ? "text-cream hover:text-saffron" : "text-forest hover:text-saffron-ink"}`}
                     >
                       {n.label}
                       {active && (
@@ -82,15 +85,15 @@ export default function Header() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Close menu" : "Open menu"}
-              className={`relative z-[60] grid h-12 w-12 place-items-center rounded-full lg:hidden ${open ? "bg-saffron" : "bg-forest"}`}
+              className={`relative z-[60] grid h-12 w-12 place-items-center rounded-full lg:hidden ${open || light ? "bg-saffron" : "bg-forest"}`}
             >
               <span className="relative block h-3 w-5">
                 <m.span
-                  className={`absolute left-0 top-0 h-[2px] w-5 rounded ${open ? "bg-ink" : "bg-cream"}`}
+                  className={`absolute left-0 top-0 h-[2px] w-5 rounded ${open || light ? "bg-ink" : "bg-cream"}`}
                   animate={open ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }}
                 />
                 <m.span
-                  className={`absolute bottom-0 left-0 h-[2px] w-5 rounded ${open ? "bg-ink" : "bg-cream"}`}
+                  className={`absolute bottom-0 left-0 h-[2px] w-5 rounded ${open || light ? "bg-ink" : "bg-cream"}`}
                   animate={open ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }}
                 />
               </span>

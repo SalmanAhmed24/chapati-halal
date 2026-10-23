@@ -44,15 +44,15 @@ export default function Hero() {
 
         <div className="relative mx-auto w-full max-w-[560px]">
           <div className="hero-img relative aspect-[4/4.6]">
-            <div className="arch grain relative h-full w-full overflow-hidden bg-forest">
+            <div className="arch relative h-full w-full overflow-hidden bg-forest">
               <Image
-                src="/images/hero-biryani.jpg"
-                alt="Beef biryani served with raita and fresh chapati"
+                src="/images/hero-main.jpg"
+                alt="Beef biryani in a copper karahi with raita, salad and fresh naan"
                 fill
                 priority
                 fetchPriority="high"
                 sizes="(min-width: 768px) 44vw, 92vw"
-                className="hero-zoom object-cover"
+                className="hero-zoom object-cover object-[62%_50%]"
               />
             </div>
           </div>

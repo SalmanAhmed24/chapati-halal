@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 const pillars = [
   { img: "/images/g-biryani-2.jpg", title: "Authentic Taste", text: "A perfect blend of Indian and Pakistani flavours.", alt: "Plate of biryani" },
-  { img: "/images/interior-dine.jpg", title: "Warm Atmosphere", text: "A cosy place to relax, share a meal and enjoy.", alt: "Dining room at dusk" },
+  { img: "/images/about-atmosphere.jpg", title: "Warm Atmosphere", text: "A cosy place to relax, share a meal and enjoy.", alt: "Chapati Halal dining room with wooden tables and the menu board above the counter" },
   { img: "/images/g-naan.jpg", title: "Made with Care", text: "Every dish is prepared with love and attention.", alt: "Fresh naan" },
 ];
 
@@ -34,8 +34,10 @@ export default function AboutPage() {
         line1="More than just"
         line2="a restaurant."
         text="Chapati Halal — Cocina India Pakistan — brings together the rich culinary traditions of India and Pakistan. Authentic, halal dishes made with fresh ingredients, aromatic spices and time-honoured recipes."
-        img="/images/hero-curry.jpg"
-        alt="Copper karahi of chicken curry with rice, chapati and spices"
+        img="/images/about-hero.jpg"
+        alt="Chicken biryani in a copper handi with raita, salad and fresh naan"
+        grain={false}
+        imgClassName="object-[50%_30%]"
       >
         <Button href="#journey" variant="forest">
           Our Journey
@@ -44,7 +46,17 @@ export default function AboutPage() {
 
       <section id="journey" className="py-24 md:py-32">
         <div className="container-x grid items-center gap-12 md:grid-cols-2 lg:gap-24">
-          <ParallaxImage src="/images/storefront-night.jpg" alt="Chapati Halal storefront at night" sizes="(min-width:768px) 48vw, 92vw" wrapperClassName="aspect-[5/4] rounded-[28px]" />
+          <FadeUp y={60}>
+            <div className="group relative aspect-[3/2] overflow-hidden rounded-[28px] shadow-[0_40px_80px_-40px_rgba(14,59,44,.45)]">
+              <Image
+                src="/images/about-story.jpg"
+                alt="The Chapati Halal counter with its illuminated sign, menu boards and food displays"
+                fill
+                sizes="(min-width:768px) 48vw, 92vw"
+                className="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
+              />
+            </div>
+          </FadeUp>
           <div>
             <p className="eyebrow text-saffron-ink">About Chapati Halal</p>
             <RevealText className="font-display mt-4 text-[clamp(2.4rem,5vw,4.4rem)] font-medium leading-none text-forest">
@@ -109,7 +121,7 @@ export default function AboutPage() {
               </div>
             </FadeUp>
           </div>
-          <ParallaxImage src="/images/spices.jpg" alt="Turmeric, chilli, cardamom, cinnamon and peppercorns" sizes="(min-width:768px) 48vw, 92vw" wrapperClassName="arch aspect-[4/4.4]" />
+          <ParallaxImage src="/images/about-spices.jpg" alt="Bowls of chilli, turmeric, peppercorns and fresh lime" sizes="(min-width:768px) 48vw, 92vw" wrapperClassName="arch aspect-[4/4.4]" grain={false} strength={6} />
         </div>
 
         <ul className="container-x mt-24 grid gap-6 md:grid-cols-3">
@@ -129,7 +141,7 @@ export default function AboutPage() {
 
       <section className="jaali overflow-hidden text-cream">
         <div className="grid md:grid-cols-2">
-          <ParallaxImage src="/images/chef.jpg" alt="Our chef seasoning a dish" sizes="(min-width:768px) 50vw, 100vw" wrapperClassName="min-h-[360px] md:min-h-[620px]" />
+          <ParallaxImage src="/images/about-chef.jpg" alt="Our chef sprinkling spices over a freshly cooked dish" sizes="(min-width:768px) 50vw, 100vw" wrapperClassName="min-h-[360px] md:min-h-[620px]" grain={false} strength={8} />
           <div className="container-x flex flex-col justify-center py-20 md:px-16">
             <p className="eyebrow text-saffron">Our chef&apos;s philosophy</p>
             <RevealText className="font-display mt-4 text-[clamp(2.3rem,4.6vw,4.2rem)] font-medium leading-none">

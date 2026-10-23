@@ -89,8 +89,9 @@ type ParallaxImageProps = Omit<ImageProps, "fill"> & {
   wrapperClassName?: string;
   strength?: number;
   reveal?: boolean;
+  grain?: boolean;
 };
-export function ParallaxImage({ wrapperClassName = "", strength = 12, reveal = true, className = "", alt, ...img }: ParallaxImageProps) {
+export function ParallaxImage({ wrapperClassName = "", strength = 12, reveal = true, grain = true, className = "", alt, ...img }: ParallaxImageProps) {
   const wrap = useRef<HTMLDivElement>(null);
   const inner = useRef<HTMLDivElement>(null);
   useScrollAnimation(
@@ -117,7 +118,7 @@ export function ParallaxImage({ wrapperClassName = "", strength = 12, reveal = t
     wrap
   );
   return (
-    <div ref={wrap} className={`relative overflow-hidden grain ${wrapperClassName}`} style={{ clipPath: "inset(0% 0% 0% 0% round 0px)" }}>
+    <div ref={wrap} className={`relative overflow-hidden ${grain ? "grain" : ""} ${wrapperClassName}`} style={{ clipPath: "inset(0% 0% 0% 0% round 0px)" }}>
       <div ref={inner} className="absolute inset-[-14%_0]" style={{ willChange: "transform" }}>
         <Image fill alt={alt} className={`object-cover ${className}`} {...img} />
       </div>
