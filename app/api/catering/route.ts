@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { mailerConfigured, sendSiteEmail } from "@/lib/mailer";
+
+export const runtime = "nodejs";
 
 /** Catering quote requests. Connect to your email provider / CRM where marked. */
 export async function POST(req: Request) {
@@ -24,8 +27,19 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Missing or invalid fields" }, { status: 422 });
   }
 
-  // TODO: forward to chapatihalal273@gmail.com via your email provider (Resend, SendGrid…)
-  console.info("[catering]", data);
-
+  if (!mailerConfigured()) {
+    console.error("[catering] GMAIL_USER / GMAIL_APP_PASSWORD are not set; request not sent.");
+    return NextResponse.json({ ok: false, error: "Email is not configured" }, { status: 503 });
+  }
+  try {
+    await sendSiteEmail({
+      subject: `Catering request: ${data.eventType}, ${data.guests} guests on ${data.date}`,
+      replyTo: data.email,
+      fields: { Name: data.name, Phone: data.phone, Email: data.email, Guests: data.guests, "Event date": data.date, Service: data.service, "Event type": data.eventType, Location: data.location, Details: data.details },
+    });
+  } catch (err) {
+    console.error("[catering] send failed", err);
+    return NextResponse.json({ ok: false, error: "Could not send" }, { status: 502 });
+  }
   return NextResponse.json({ ok: true });
 }

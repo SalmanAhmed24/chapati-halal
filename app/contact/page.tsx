@@ -1,115 +1,128 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
-import CTABand from "@/components/CTABand";
 import Button from "@/components/Button";
 import ContactForm from "@/components/contact/ContactForm";
+import HoursList from "@/components/contact/HoursList";
 import { FadeUp, RevealText } from "@/components/motion";
-import { Bag, Chef, Clock, Halal, Mail, People, Phone, Pin } from "@/components/Icons";
-import { site, weeklyHours } from "@/lib/data";
+import { Mail, Phone, Pin } from "@/components/Icons";
+import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Questions, feedback or special requests? Call, email or message Chapati Halal — we usually reply within 24 hours.",
+  description: "Get in touch with Chapati Halal in El Poblado, Medellín. Send us a message, find us on the map or check our opening hours.",
   alternates: { canonical: "/contact" },
 };
 
-const channels = [
-  { icon: Phone, title: "Call Us", value: site.phone, href: site.phoneHref, note: "Happy to help with orders and enquiries." },
-  { icon: Mail, title: "Email Us", value: site.email, href: `mailto:${site.email}`, note: "We usually respond within 24 hours." },
-  { icon: Pin, title: "Visit Us", value: "Vega10, El Poblado, Medellín", href: "/locations", note: "Come and enjoy an authentic dining experience." },
-  { icon: Bag, title: "Order Online", value: "Pickup or delivery", href: site.orderUrl, note: "Your favourite dishes, from the comfort of home." },
-];
-
-const why = [
-  { icon: Chef, title: "Authentic Cuisine", text: "Traditional Indian & Pakistani flavours" },
-  { icon: People, title: "Family Friendly", text: "A warm and welcoming environment" },
-  { icon: Halal, title: "Halal Food", text: "Prepared with care" },
-  { icon: Pin, title: "Convenient Location", text: "Easy to find, with ample parking" },
-];
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.address)}&output=embed`;
 
 export default function ContactPage() {
   return (
     <>
+      {/* 1. Hero */}
       <PageHero
         eyebrow="Contact us"
         line1="We'd love to"
         line2="hear from you."
-        text="Have a question, feedback, or a special request? We're here to help. Reach out, or visit us for an authentic Indian & Pakistani dining experience."
-        img="/images/interior-dine.jpg"
-        alt="Evening dining room with warm pendant lights"
+        text="Questions, feedback, bookings or special requests? Send us a message, give us a call or drop by our counter at Vega10 in El Poblado. We usually reply within 24 hours."
+        img="/images/contact-hero.jpg"
+        alt="The Chapati Halal counter with its illuminated sign, menu boards and food displays"
+        grain={false}
+        imgClassName="object-[52%_40%]"
       >
-        <Button href="#write" variant="forest">
+        <Button href="#message" variant="forest">
           Send a Message
+        </Button>
+        <Button href={site.phoneHref} variant="ghost-dark">
+          {site.phone}
         </Button>
       </PageHero>
 
-      <section className="jaali text-cream">
-        <ul className="container-x grid gap-px py-6 sm:grid-cols-2 lg:grid-cols-4">
-          {channels.map(({ icon: Icon, title, value, href, note }, i) => (
-            <FadeUp as="li" key={title} delay={i * 0.08} className="p-6 text-center">
-              <a href={href} className="group block">
-                <span className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-saffron/60 text-saffron transition-colors duration-500 group-hover:bg-saffron group-hover:text-ink">
-                  <Icon size={26} />
+      {/* 2. Map + form */}
+      <section id="message" className="scroll-mt-24 pb-24 md:pb-32">
+        <div className="container-x grid gap-10 lg:grid-cols-2 lg:gap-14">
+          <FadeUp className="flex flex-col">
+            <div className="relative min-h-[360px] flex-1 overflow-hidden rounded-[28px] border border-forest/10 bg-cream-2 shadow-[0_40px_80px_-50px_rgba(14,59,44,.5)] lg:min-h-[520px]">
+              <a
+                href={site.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 grid place-items-center text-center font-semibold text-forest"
+              >
+                <span className="flex flex-col items-center gap-2">
+                  <Pin size={32} className="text-saffron-ink" />
+                  Open in Google Maps
                 </span>
-                <h2 className="font-display mt-4 text-2xl">{title}</h2>
-                <p className="mt-1 font-semibold">{value}</p>
-                <p className="mt-2 text-sm text-mint">{note}</p>
               </a>
-            </FadeUp>
-          ))}
-        </ul>
-      </section>
+              <iframe
+                title="Map showing Chapati Halal at Centro Comercial Vega10, El Poblado, Medellín"
+                src={mapSrc}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
+            <ul className="mt-6 grid gap-4 text-muted sm:grid-cols-[1.4fr_1fr]">
+              <li className="flex gap-3">
+                <Pin className="mt-0.5 shrink-0 text-saffron-ink" />
+                <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-forest">
+                  {site.address}
+                </a>
+              </li>
+              <li className="space-y-3">
+                <a href={site.phoneHref} className="flex gap-3 hover:text-forest">
+                  <Phone className="shrink-0 text-saffron-ink" /> {site.phone}
+                </a>
+                <a href={`mailto:${site.email}`} className="flex gap-3 break-all hover:text-forest">
+                  <Mail className="shrink-0 text-saffron-ink" /> {site.email}
+                </a>
+              </li>
+            </ul>
+          </FadeUp>
 
-      <section id="write" className="scroll-mt-24 py-24 md:py-32">
-        <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
-          <div>
-            <RevealText className="font-display text-[clamp(2.2rem,4.6vw,4rem)] font-medium leading-none text-forest">
-              Opening <span className="font-italic-display text-saffron-ink">hours</span>
-            </RevealText>
-            <p className="mt-4 text-muted">We look forward to serving you — see you soon in El Poblado.</p>
-            <FadeUp>
-              <dl className="mt-8 divide-y divide-forest/10 rounded-[22px] bg-cream-2/80 px-6 py-2">
-                {weeklyHours.map((h) => (
-                  <div key={h.day} className="flex justify-between py-3.5">
-                    <dt className="font-semibold text-forest">{h.day}</dt>
-                    <dd className="text-muted">{h.time}</dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-[22px] grain">
-                <Image src="/images/storefront-night.jpg" alt="Chapati Halal storefront at night" fill sizes="(min-width:1024px) 40vw, 92vw" className="object-cover" />
-              </div>
-            </FadeUp>
-          </div>
           <div className="rounded-[28px] border border-forest/10 bg-cream p-6 shadow-[0_40px_80px_-50px_rgba(14,59,44,.5)] md:p-10">
-            <RevealText className="font-display text-[clamp(2rem,4vw,3.4rem)] font-medium leading-none text-forest">
+            <p className="eyebrow text-saffron-ink">Get in touch</p>
+            <RevealText className="font-display mt-3 text-[clamp(2rem,4vw,3.4rem)] font-medium leading-none text-forest">
               Send us a <span className="font-italic-display text-saffron-ink">message</span>
             </RevealText>
-            <p className="mt-3 text-muted">Fill out the form below and we&apos;ll get back to you as soon as possible.</p>
+            <p className="mt-3 text-muted">Fill in the form and your message goes straight to our inbox. We&apos;ll get back to you as soon as possible.</p>
             <ContactForm />
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="why-h" className="border-y border-forest/10 bg-cream-2/50 py-16">
-        <div className="container-x">
-          <h2 id="why-h" className="font-display text-center text-[clamp(2rem,4vw,3.2rem)] text-forest">
-            Why visit <span className="font-italic-display text-saffron-ink">us?</span>
-          </h2>
-          <ul className="mt-12 grid grid-cols-2 gap-y-10 lg:grid-cols-4 lg:divide-x lg:divide-forest/10">
-            {why.map(({ icon: Icon, title, text }, i) => (
-              <FadeUp as="li" key={title} delay={i * 0.07} className="flex flex-col items-center px-4 text-center">
-                <Icon size={34} className="text-forest" />
-                <h3 className="mt-4 font-bold text-forest">{title}</h3>
-                <p className="mt-1 text-sm text-muted">{text}</p>
-              </FadeUp>
-            ))}
-          </ul>
+      {/* 3. Hours + exterior */}
+      <section className="jaali py-24 md:py-32">
+        <div className="container-x grid items-center gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+          <div className="rounded-[28px] bg-cream p-6 md:p-10">
+            <p className="eyebrow text-saffron-ink">Opening hours</p>
+            <RevealText className="font-display mt-3 text-[clamp(2.2rem,4.4vw,3.8rem)] font-medium leading-none text-forest">
+              Come <span className="font-italic-display text-saffron-ink">hungry.</span>
+            </RevealText>
+            <p className="mt-4 text-muted">Lunch, dinner or a quick bite in between, the kitchen is open six days a week.</p>
+            <HoursList />
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href={site.mapsUrl} external variant="forest">
+                Get Directions
+              </Button>
+              <Button href={site.orderUrl} variant="ghost-dark">
+                Order Online
+              </Button>
+            </div>
+          </div>
+          <FadeUp y={60}>
+            <div className="group relative aspect-[16/11] overflow-hidden rounded-[28px] shadow-[0_40px_80px_-30px_rgba(0,0,0,.6)]">
+              <Image
+                src="/images/contact-exterior.jpg"
+                alt="Chapati Halal restaurant exterior at dusk with its green sign and terrace seating"
+                fill
+                sizes="(min-width:1024px) 52vw, 92vw"
+                className="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
+              />
+            </div>
+          </FadeUp>
         </div>
       </section>
-
-      <CTABand secondary={{ href: site.phoneHref, label: "Call Us" }} />
     </>
   );
 }

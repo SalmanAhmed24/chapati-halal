@@ -9,9 +9,7 @@ import { getLenis } from "../SmoothScroll";
 const filters: { key: "all" | GalleryItem["cat"]; label: string }[] = [
   { key: "all", label: "All" },
   { key: "food", label: "Food & Drinks" },
-  { key: "interior", label: "Interior" },
   { key: "exterior", label: "Exterior" },
-  { key: "dining", label: "Dining Area" },
 ];
 
 export default function GalleryGrid() {

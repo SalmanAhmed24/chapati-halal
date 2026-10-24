@@ -17,8 +17,10 @@ export default function GalleryPage() {
         line1="A glimpse of"
         line2="Chapati Halal."
         text="Explore moments from our restaurants, delicious food, and the warm atmosphere we create for our guests. From flavourful dishes to a cosy dining room — see what makes us special."
-        img="/images/storefront-day.jpg"
-        alt="Chapati Halal storefront with outdoor seating"
+        img="/images/gallery-hero.jpg"
+        alt="The Chapati Halal counter with its illuminated sign, menu boards and food displays"
+        grain={false}
+        imgClassName="object-[52%_40%]"
       />
       <GalleryGrid />
       <CTABand secondary={{ href: "/menu", label: "View Our Menu" }} />

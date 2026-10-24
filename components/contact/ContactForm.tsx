@@ -56,7 +56,7 @@ export default function ContactForm() {
             </button>
           </m.div>
         ) : (
-          <m.form key="form" onSubmit={onSubmit} noValidate initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -20 }} className="grid gap-4 sm:grid-cols-2">
+          <m.form key="form" onSubmit={onSubmit} noValidate initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -20 }} className="relative grid gap-4 sm:grid-cols-2">
             {(
               [
                 { name: "name", label: "Your name *", type: "text", auto: "name" },
@@ -86,6 +86,10 @@ export default function ContactForm() {
                 )}
               </div>
             ))}
+            <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+              <label htmlFor="company">Company</label>
+              <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+            </div>
             <div className="relative sm:col-span-2">
               <textarea
                 id="message"

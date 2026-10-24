@@ -22,7 +22,7 @@ Requires Node 20+. Deploys to Vercel with zero config.
 | `/catering`  | Catering hero, occasions, tabbed catering menu, packages, how-it-works, quote request form (`/api/catering`) |
 | `/gallery`   | Filterable masonry grid with a shared-element lightbox (keyboard: ← → Esc) |
 | `/locations` | Medellín location (address, hours, phone, directions) beside a message form |
-| `/contact`   | Contact channels, opening hours, validated form (`/api/contact`) |
+| `/contact`   | Hero, Google map beside the contact form (`/api/contact`, emails the inbox), opening hours with today highlighted |
 
 ## Motion system
 
@@ -42,8 +42,10 @@ All copy, prices, locations, testimonials and gallery entries are in **`lib/data
 - **Hours**: Mon–Sat 12:00 PM – 8:30 PM. Sunday is shown as closed; change `weeklyHours` and `locations[0].hours` if that's wrong.
 - **Testimonials** reuse the mockup quotes plus one sample. Use real reviews before you launch.
 - **Order Online** links to `/menu`. Point `site.orderUrl` at your ordering platform.
-- **Catering quotes**: `app/api/catering/route.ts` validates requests; connect it to email where the `TODO` is.
-- **Contact form**: `app/api/contact/route.ts` validates the input and returns success. Connect your email provider where the `TODO` is.
+- **Email (contact form + catering quotes)** is sent through Gmail by `lib/mailer.ts` to the email in `lib/data.ts`. In Vercel → Settings → Environment Variables add:
+  - `GMAIL_USER` = chapatihalal273@gmail.com
+  - `GMAIL_APP_PASSWORD` = a Google App password (turn on 2-Step Verification, then Google Account → Security → App passwords)
+  Then redeploy. Without these the forms show an error instead of pretending to send. See `.env.example`.
 - Update `site.url` in `lib/data.ts` to your real domain. It is used for the canonical URL, the sitemap and Open Graph.
 
 ## Lighthouse (production build, local)
