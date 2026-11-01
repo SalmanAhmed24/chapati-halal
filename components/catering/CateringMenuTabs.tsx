@@ -3,9 +3,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { cateringMenu } from "@/lib/data";
-import { Bowl, Chef, Leaf, Utensils, Gift, Confetti } from "../Icons";
+import { Bowl, Chef, Leaf, Utensils, Gift, Confetti, Flame, Cup, Wrap } from "../Icons";
 
-const icons = [Bowl, Chef, Utensils, Confetti, Leaf, Gift];
+const icons = { bowl: Bowl, chef: Chef, flame: Flame, leaf: Leaf, utensils: Utensils, confetti: Confetti, gift: Gift, cup: Cup, wrap: Wrap } as const;
 
 export default function CateringMenuTabs() {
   const [active, setActive] = useState(0);
@@ -16,7 +16,7 @@ export default function CateringMenuTabs() {
       <div className="no-scrollbar -mx-[var(--gutter)] overflow-x-auto px-[var(--gutter)]">
         <div role="tablist" aria-label="Catering menu categories" className="mx-auto flex w-max gap-1 rounded-full border border-cream/15 bg-forest-deep/60 p-1.5">
           {cateringMenu.map((c, i) => {
-            const Icon = icons[i % icons.length];
+            const Icon = icons[c.icon];
             const selected = i === active;
             return (
               <button
@@ -58,7 +58,7 @@ export default function CateringMenuTabs() {
                 }}
                 className="group overflow-hidden rounded-[22px] bg-cream text-ink"
               >
-                <div className="relative aspect-[4/3] overflow-hidden grain">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image src={it.img} alt={it.name} fill sizes="(min-width:1024px) 23vw, (min-width:640px) 46vw, 92vw" className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-110" />
                 </div>
                 <div className="p-5">

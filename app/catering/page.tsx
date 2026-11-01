@@ -89,8 +89,8 @@ export default function CateringPage() {
 
           <div className="relative mx-auto w-full max-w-[560px]">
             <div className="hero-img relative aspect-[4/4.4]">
-              <div className="arch grain relative h-full w-full overflow-hidden">
-                <Image src="/images/cat-hero.jpg" alt="Catering buffet with trays of biryani, curries and fresh bread" fill priority fetchPriority="high" sizes="(min-width:768px) 44vw, 92vw" className="hero-zoom object-cover" />
+              <div className="arch relative h-full w-full overflow-hidden">
+                <Image src="/images/catering-hero.jpg" alt="Catering buffet with trays of biryani, curries and fresh bread" fill priority fetchPriority="high" sizes="(min-width:768px) 44vw, 92vw" className="hero-zoom object-cover" />
               </div>
             </div>
             <div className="hero-in absolute -left-3 bottom-8 rounded-2xl bg-cream p-4 pr-6 text-forest shadow-2xl md:-left-10" style={{ animationDelay: "0.85s" }}>
@@ -120,7 +120,7 @@ export default function CateringPage() {
               const Icon = occasionIcon[o.icon];
               return (
                 <FadeUp as="li" key={o.title} delay={i * 0.08} className="group">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[22px] grain">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[22px]">
                     <Image src={o.img} alt={o.title} fill sizes="(min-width:1024px) 23vw, (min-width:640px) 46vw, 92vw" className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-110" />
                   </div>
                   <div className="relative -mt-8 px-5 text-center">
@@ -182,7 +182,7 @@ export default function CateringPage() {
                 <h3 className="font-display mt-4 text-3xl text-forest">{p.name}</h3>
                 <p className="mt-1 text-sm font-bold text-saffron-ink">{p.guests}</p>
                 <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">{p.text}</p>
-                <div className="relative mt-6 aspect-[16/8] overflow-hidden rounded-[18px] grain">
+                <div className="relative mt-6 aspect-[16/8] overflow-hidden rounded-[18px]">
                   <Image src={p.img} alt="" fill sizes="(min-width:768px) 30vw, 92vw" className="object-cover" />
                 </div>
                 <div className="mt-6">
@@ -252,7 +252,7 @@ export default function CateringPage() {
       <Suspense>
       <section id="quote" className="jaali scroll-mt-16 text-cream">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-          <ParallaxImage src="/images/cat-quote.jpg" alt="Chafing dishes of biryani and curries set out for an event" sizes="(min-width:1024px) 45vw, 100vw" wrapperClassName="min-h-[320px] lg:min-h-full" />
+          <ParallaxImage src="/images/catering-quote.jpg" alt="Chafing dishes of biryani and curries set out for an event" sizes="(min-width:1024px) 45vw, 100vw" wrapperClassName="min-h-[320px] lg:min-h-full" grain={false} />
           <div className="container-x py-20 lg:px-16 lg:py-28">
             <p className="eyebrow text-saffron">Let&apos;s plan your catering</p>
             <RevealText className="font-display mt-4 text-[clamp(2.3rem,4.6vw,4.2rem)] font-medium leading-none">

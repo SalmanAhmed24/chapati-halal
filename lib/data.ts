@@ -267,75 +267,116 @@ export const values = [
 /* ------------------------------ Catering ------------------------------ */
 
 export const cateringOccasions = [
-  { title: "Family Gatherings", text: "Share a delicious meal with family and friends.", img: "/images/cat-family.jpg", icon: "people" },
-  { title: "Corporate Events", text: "Catering for office lunches, meetings and team events.", img: "/images/cat-corporate.jpg", icon: "briefcase" },
-  { title: "Parties & Celebrations", text: "Birthdays, anniversaries and special occasions.", img: "/images/cat-party.jpg", icon: "confetti" },
-  { title: "Private Events", text: "Group meals and celebrations tailored to your needs.", img: "/images/cat-private.jpg", icon: "gift" },
+  { title: "Family Gatherings", text: "Share a delicious meal with family and friends.", img: "/images/catering-family.jpg", icon: "people" },
+  { title: "Corporate Events", text: "Catering for office lunches, meetings and team events.", img: "/images/catering-corporate.jpg", icon: "briefcase" },
+  { title: "Parties & Celebrations", text: "Birthdays, anniversaries and special occasions.", img: "/images/catering-party.jpg", icon: "confetti" },
+  { title: "Private Events", text: "Group meals and celebrations tailored to your needs.", img: "/images/catering-private.jpg", icon: "gift" },
 ] as const;
 
 export type CateringItem = { name: string; desc: string; img: string };
-export const cateringMenu: { slug: string; label: string; items: CateringItem[] }[] = [
+export type CateringIcon = "bowl" | "chef" | "flame" | "leaf" | "utensils" | "confetti" | "gift" | "cup" | "wrap";
+export const cateringMenu: { slug: string; label: string; icon: CateringIcon; items: CateringItem[] }[] = [
   {
     slug: "biryani",
     label: "Biryani & Rice",
+    icon: "bowl",
     items: [
-      { name: "Chicken Biryani", desc: "Aromatic basmati rice with tender chicken, traditional spices and fresh herbs.", img: "/images/cat-chicken-biryani.jpg" },
-      { name: "Beef Biryani", desc: "Fragrant rice cooked with succulent beef and authentic spices.", img: "/images/g-biryani.jpg" },
-      { name: "Vegetable Biryani", desc: "Flavourful basmati rice with seasonal vegetables and traditional spices.", img: "/images/cat-veg-biryani.jpg" },
-      { name: "Plain Basmati Rice", desc: "Steamed basmati rice, perfect to pair with our curries.", img: "/images/m-rice.jpg" },
+      { name: "Chicken Biryani", desc: "Aromatic basmati rice with tender chicken, traditional spices and fresh herbs.", img: "/images/menu/chicken-biryani.jpg" },
+      { name: "Beef Biryani", desc: "Fragrant rice cooked with succulent beef and authentic spices.", img: "/images/menu/beef-biryani.jpg" },
+      { name: "Mutton Biryani", desc: "Slow-cooked mutton dum-layered with fragrant basmati rice.", img: "/images/menu/mutton-biryani.jpg" },
+      { name: "Vegetable Biryani", desc: "Flavourful basmati rice with seasonal vegetables and traditional spices.", img: "/images/menu/vegetable-biryani.jpg" },
+      { name: "Plain Basmati Rice", desc: "Steamed basmati rice, perfect to pair with our curries.", img: "/images/menu/plain-rice.jpg" },
     ],
   },
   {
     slug: "curries",
     label: "Curries",
+    icon: "chef",
     items: [
-      { name: "Chicken Curry", desc: "Juicy chicken slow-cooked in a rich, spiced gravy.", img: "/images/d-chicken-curry.jpg" },
-      { name: "Beef Kofta", desc: "Hand-rolled beef meatballs in an onion–tomato gravy.", img: "/images/d-beef-kofta.jpg" },
-      { name: "Aloo Gosht", desc: "Tender meat and potato in a home-style curry.", img: "/images/g-aloo.jpg" },
-      { name: "Fish Curry", desc: "Fish simmered with onion, ginger and garlic.", img: "/images/m-fish-curry.jpg" },
+      { name: "Chicken Karahi", desc: "Chicken cooked in the karahi with tomato, green chilli and ginger.", img: "/images/menu/chicken-karahi.jpg" },
+      { name: "Beef Kofta", desc: "Hand-rolled beef meatballs in an onion–tomato gravy.", img: "/images/menu/beef-kofta-curry.jpg" },
+      { name: "Mutton Karahi", desc: "Tender mutton cooked the traditional way with fresh tomato and spices.", img: "/images/menu/mutton-karahi.jpg" },
+      { name: "Fish Curry", desc: "Fish simmered with onion, ginger and garlic.", img: "/images/menu/fish-curry.jpg" },
     ],
   },
   {
-    slug: "breads",
-    label: "Breads & Sides",
+    slug: "bbq",
+    label: "BBQ",
+    icon: "flame",
     items: [
-      { name: "Chapati", desc: "Whole-wheat flatbread, baked fresh for your event.", img: "/images/g-chapati.jpg" },
-      { name: "Paratha", desc: "Flaky, buttery layered flatbread.", img: "/images/g-naan.jpg" },
-      { name: "Bread Basket", desc: "A mix of chapati, naan and paratha for the table.", img: "/images/g-breads.jpg" },
-      { name: "Salad & Raita", desc: "Fresh salad with cooling yoghurt raita.", img: "/images/g-platter.jpg" },
+      { name: "Chicken Tikka Boti", desc: "Charcoal-grilled chicken pieces with mint chutney.", img: "/images/menu/chicken-tikka-boti.jpg" },
+      { name: "Chapli Kebab Platter", desc: "Peshawari-style minced kebabs with onion, lemon and chutney.", img: "/images/menu/chapli-kebab-platter.jpg" },
     ],
   },
   {
-    slug: "appetizers",
-    label: "Appetizers",
+    slug: "shawarma",
+    label: "Shawarma",
+    icon: "wrap",
     items: [
-      { name: "Samosa", desc: "Crisp pastry with spiced potato and peas, served with chutneys.", img: "/images/g-samosa.jpg" },
-      { name: "Chicken Tikka Boti", desc: "Charcoal-grilled chicken bites with mint chutney.", img: "/images/d-tikka.jpg" },
-      { name: "Seekh Kebab", desc: "Minced, spiced skewers straight off the grill.", img: "/images/g-kebab.jpg" },
+      { name: "Chicken Shawarma Wrap", desc: "Grilled chicken, salad and garlic sauce in warm flatbread.", img: "/images/menu/chicken-shawarma-wrap.jpg" },
+      { name: "Beef Shawarma Wrap", desc: "Spiced beef, fresh salad and sauces, rolled to order.", img: "/images/menu/beef-shawarma-wraps.jpg" },
+      { name: "Mutton Shawarma Wrap", desc: "Tender mutton with salad and garlic sauce in flatbread.", img: "/images/menu/mutton-shawarma-wrap.jpg" },
+      { name: "Kebab Roll Paratha", desc: "Seekh kebab, onion and chutney rolled in a flaky paratha.", img: "/images/menu/kebab-rolls-pratha.jpg" },
     ],
   },
   {
     slug: "vegetarian",
     label: "Vegetarian",
+    icon: "leaf",
     items: [
-      { name: "Dal Tadka", desc: "Yellow lentils tempered with cumin and garlic.", img: "/images/m-dal.jpg" },
-      { name: "Paneer Karahi", desc: "Paneer tossed with onion, ginger, garlic and tomato.", img: "/images/m-karahi.jpg" },
-      { name: "Aloo Palak", desc: "Spinach and potato, home-style.", img: "/images/m-palak.jpg" },
-      { name: "Mix Vegetable", desc: "Seasonal vegetables in a fragrant masala.", img: "/images/d-mix-veg.jpg" },
+      { name: "Dal Tadka", desc: "Yellow lentils tempered with cumin and garlic.", img: "/images/menu/dal-tadka.jpg" },
+      { name: "Paneer Karahi", desc: "Paneer tossed with onion, ginger, garlic and tomato.", img: "/images/menu/paneer-karahi.jpg" },
+      { name: "Aloo Palak", desc: "Spinach and potato, home-style.", img: "/images/menu/aloo-palak.jpg" },
+      { name: "Mix Vegetable", desc: "Seasonal vegetables in a fragrant masala.", img: "/images/menu/vegetable-curry.jpg" },
     ],
   },
   {
-    slug: "desserts",
-    label: "Desserts & Drinks",
+    slug: "breads",
+    label: "Breads",
+    icon: "utensils",
     items: [
-      { name: "Gulab Jamun", desc: "Milk dumplings in cardamom–rose syrup.", img: "/images/g-gulab.jpg" },
-      { name: "Mango Lassi", desc: "Thick yoghurt blended with sweet mango.", img: "/images/g-mango-lassi.jpg" },
+      { name: "Chapati", desc: "Whole-wheat flatbread, baked fresh for your event.", img: "/images/menu/chapati.jpg" },
+      { name: "Makhni Paratha", desc: "Flaky layered flatbread finished with butter.", img: "/images/menu/makhni-pratha.jpg" },
+      { name: "Aloo Paratha", desc: "Paratha stuffed with spiced potato.", img: "/images/menu/aloo-paratha.jpg" },
+      { name: "Chicken Paratha", desc: "Paratha stuffed with spiced minced chicken.", img: "/images/menu/chicken-pratha.jpg" },
+    ],
+  },
+  {
+    slug: "appetizers",
+    label: "Appetizers",
+    icon: "confetti",
+    items: [
+      { name: "Vegetable Pakora", desc: "Mixed vegetable fritters in a crisp gram-flour batter.", img: "/images/menu/vegetable-pakoras.jpg" },
+      { name: "Chicken Pakora", desc: "Chicken pieces fried in a spiced gram-flour batter.", img: "/images/menu/chicken-pakoras.jpg" },
+      { name: "Chicken Samosa", desc: "Crisp pastry filled with spiced minced chicken.", img: "/images/menu/chicken-samosas.jpg" },
+      { name: "Beef Samosa", desc: "Crisp pastry filled with spiced minced beef.", img: "/images/menu/beef-samosas.jpg" },
+    ],
+  },
+  {
+    slug: "sweets",
+    label: "Sweets",
+    icon: "gift",
+    items: [
+      { name: "Gulab Jamun", desc: "Milk dumplings in cardamom–rose syrup.", img: "/images/menu/gulab-jamun.jpg" },
+      { name: "Firni", desc: "Chilled ground-rice pudding with cardamom, pistachio and rose.", img: "/images/menu/firni.jpg" },
+      { name: "Gajar Ka Halwa", desc: "Slow-cooked carrot pudding with ghee, milk and nuts.", img: "/images/menu/gajar-ka-halwa.jpg" },
+    ],
+  },
+  {
+    slug: "drinks",
+    label: "Drinks",
+    icon: "cup",
+    items: [
+      { name: "Tea / Chai", desc: "Spiced milk chai or classic black tea, served hot.", img: "/images/menu/steaming-ornate-chai-with-spices.jpg" },
+      { name: "Fresh Juice", desc: "Mango, orange, pineapple, guava or lemonade, squeezed fresh.", img: "/images/menu/fresh-juice.jpg" },
+      { name: "Soft Drinks", desc: "Assorted chilled sodas.", img: "/images/menu/soda.jpg" },
+      { name: "Mango Lassi", desc: "Thick yoghurt blended with sweet mango.", img: "/images/menu/mango-lassi.jpg" },
     ],
   },
 ];
 
 export const cateringPackages = [
-  { name: "Small Gathering", guests: "Serves 10–20 people", text: "Perfect for family meals and small celebrations. A selection of popular dishes, sides and breads.", img: "/images/cat-pkg-small.jpg", cta: "View Menu Options", href: "#catering-menu" },
-  { name: "Party Package", guests: "Serves 25–50 people", text: "Great for birthdays, social events and larger gatherings. A variety of dishes for a complete meal experience.", img: "/images/cat-pkg-party.jpg", cta: "View Menu Options", href: "#catering-menu", popular: true },
-  { name: "Corporate & Large Events", guests: "Serves 50+ people", text: "Ideal for offices, corporate lunches and large celebrations. Custom menu options and quantities available.", img: "/images/cat-pkg-large.jpg", cta: "Request a Custom Quote", href: "#quote" },
+  { name: "Small Gathering", guests: "Serves 10–20 people", text: "Perfect for family meals and small celebrations. A selection of popular dishes, sides and breads.", img: "/images/catering-pkg-small.jpg", cta: "View Menu Options", href: "#catering-menu" },
+  { name: "Party Package", guests: "Serves 25–50 people", text: "Great for birthdays, social events and larger gatherings. A variety of dishes for a complete meal experience.", img: "/images/catering-pkg-party.jpg", cta: "View Menu Options", href: "#catering-menu", popular: true },
+  { name: "Corporate & Large Events", guests: "Serves 50+ people", text: "Ideal for offices, corporate lunches and large celebrations. Custom menu options and quantities available.", img: "/images/catering-pkg-large.jpg", cta: "Request a Custom Quote", href: "#quote" },
 ];

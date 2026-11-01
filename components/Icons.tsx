@@ -87,6 +87,17 @@ export const Bowl = ({ size, ...p }: P) => (
   <svg {...base(size)} {...p}><path d="M3 11h18a9 9 0 0 1-18 0Z" /><path d="M8 8c0-1.5 1-2 1-3.5M12 8c0-1.5 1-2 1-3.5M16 8c0-1.5 1-2 1-3.5" /></svg>
 );
 
+export const Flame = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><path d="M12 21c-4 0-7-2.7-7-6.5 0-3.4 2.5-5.6 4-8 .6 2 1.6 3 2.8 3.5C11.5 7 12.5 4.5 15 3c-.3 3 1.3 5 2.6 6.8A7 7 0 0 1 19 14.5C19 18.3 16 21 12 21Z" /><path d="M12 21c-1.7 0-3-1.2-3-3 0-1.6 1.3-2.7 2-4 .8 1 2 1.6 2.6 2.6.5.7.4 1.5.4 1.9 0 1.5-.9 2.5-2 2.5Z" /></svg>
+);
+export const Cup = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><path d="M4 9h13v5a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V9Z" /><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3" /></svg>
+);
+
+export const Wrap = ({ size, ...p }: P) => (
+  <svg {...base(size)} {...p}><path d="M5 19 15 5a4 4 0 0 1 4 4L9 21a3 3 0 0 1-4-2Z" /><path d="M9 13l4 4M12 9l4 4" /></svg>
+);
+
 export const Social = {
   Facebook: (p: P) => (
     <svg width={20} height={20} viewBox="0 0 24 24" fill="currentColor" aria-hidden {...p}><path d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z" /></svg>
