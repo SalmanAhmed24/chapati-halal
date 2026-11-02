@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="jaali relative overflow-hidden text-cream">
       <div className="container-x grid gap-12 pb-12 pt-20 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1.2fr_1fr]">
         <div className="max-w-xs">
-          <Link href="/" className="block w-36">
+          <Link href="/" className="block w-44">
             <span className="sr-only">Chapati Halal home</span>
             <Logo tone="light" withTagline />
           </Link>

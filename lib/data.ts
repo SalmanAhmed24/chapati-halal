@@ -10,8 +10,9 @@ export const site = {
   phone: "+57 300 2270959",
   phoneHref: "tel:+573002270959",
   email: "chapatihalal273@gmail.com",
+  mapEmbed: "https://www.google.com/maps?q=6.2121744,-75.576002&z=17&hl=en&output=embed",
   address: "Centro Comercial Vega10, Cra. 48 #7-298, Local 103, El Poblado, Medellín, Antioquia, Colombia",
-  mapsUrl: "https://maps.app.goo.gl/5N4bgVQwH7VuVHYz6",
+  mapsUrl: "https://maps.app.goo.gl/Lxsjh3ctbscuDfyb6",
   orderUrl: "/menu",
   social: [
     { label: "Facebook", href: "https://facebook.com" },
@@ -27,7 +28,6 @@ export const nav = [
   { href: "/menu", label: "Menu" },
   { href: "/catering", label: "Catering" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/locations", label: "Locations" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -223,7 +223,7 @@ export const locations: Location[] = [
     name: "Chapati Halal Medellín",
     address: "Centro Comercial Vega10, Cra. 48 #7-298, Local 103, El Poblado, Medellín, Antioquia, Colombia",
     phone: "+57 300 2270959",
-    mapsUrl: "https://maps.app.goo.gl/5N4bgVQwH7VuVHYz6",
+    mapsUrl: "https://maps.app.goo.gl/Lxsjh3ctbscuDfyb6",
     img: "/images/storefront-night.jpg",
     hours: [
       { days: "Mon – Sat", time: "12:00 PM – 8:30 PM" },
@@ -232,30 +232,12 @@ export const locations: Location[] = [
   },
 ];
 
-export type GalleryItem = { src: string; alt: string; cat: "food" | "interior" | "exterior" | "dining"; tall?: boolean; wide?: boolean };
-
-export const gallery: GalleryItem[] = [
-  { src: "/images/g-biryani.jpg", alt: "Beef biryani with fried onions and coriander", cat: "food", wide: true },
-  { src: "/images/g-curry.jpg", alt: "Chicken curry in a steel karahi", cat: "food" },
-  { src: "/images/storefront-day.jpg", alt: "Chapati Halal storefront in daylight", cat: "exterior", wide: true },
-  { src: "/images/g-naan.jpg", alt: "Blistered naan in a basket", cat: "food" },
-  { src: "/images/g-interior-1.jpg", alt: "Dining room with orange and green walls", cat: "interior" },
-  { src: "/images/g-mango-lassi.jpg", alt: "Glass of mango lassi", cat: "food", tall: true },
-  { src: "/images/g-platter.jpg", alt: "Curry, rice, salad and chapati platter", cat: "food" },
-  { src: "/images/interior-warm.jpg", alt: "Warm-lit dining room with lanterns", cat: "dining", wide: true },
-  { src: "/images/g-samosa.jpg", alt: "Two samosas with green and tamarind chutney", cat: "food" },
-  { src: "/images/g-buffet.jpg", alt: "Hot food counter with trays of curries", cat: "interior", wide: true },
-  { src: "/images/chef.jpg", alt: "Chef finishing a dish with spices", cat: "dining" },
-  { src: "/images/spices.jpg", alt: "Whole and ground spices in bowls", cat: "food" },
-  { src: "/images/g-kebab.jpg", alt: "Seekh kebab platter with salad and rice", cat: "food", wide: true },
-  { src: "/images/g-gulab.jpg", alt: "Gulab jamun in syrup", cat: "food" },
-  { src: "/images/storefront-night.jpg", alt: "Chapati Halal terrace at night", cat: "exterior" },
-  { src: "/images/g-aloo.jpg", alt: "Aloo curry with coriander", cat: "food", tall: true },
-  { src: "/images/g-interior-3.jpg", alt: "Long dining room with tables set", cat: "dining" },
-  { src: "/images/g-chapati.jpg", alt: "Fresh chapati on paper", cat: "food" },
-  { src: "/images/interior-dine.jpg", alt: "Evening dining room with pendant lamps", cat: "dining", wide: true },
-  { src: "/images/g-breads.jpg", alt: "Breads, curry and rice on the table", cat: "food" },
-];
+// Gallery uses the same high-resolution dish photos and categories as the menu.
+export type GalleryItem = { src: string; alt: string; cat: string; wide?: boolean };
+export const galleryTabs = [{ key: "all", label: "All" }, ...menu.map((sct) => ({ key: sct.slug, label: sct.title }))];
+export const gallery: GalleryItem[] = menu.flatMap((sct) =>
+  sct.items.map((it, i) => ({ src: it.img, alt: it.name, cat: sct.slug, wide: i % 5 === 0 }))
+);
 
 export const values = [
   { title: "Authentic Flavours", text: "Recipes from Lahore, Karachi and Delhi kitchens — no shortcuts.", icon: "chef" },

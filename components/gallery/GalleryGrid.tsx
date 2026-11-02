@@ -2,18 +2,14 @@
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
-import { gallery, type GalleryItem } from "@/lib/data";
+import { gallery, galleryTabs } from "@/lib/data";
 import { Arrow, Close } from "../Icons";
 import { getLenis } from "../SmoothScroll";
 
-const filters: { key: "all" | GalleryItem["cat"]; label: string }[] = [
-  { key: "all", label: "All" },
-  { key: "food", label: "Food & Drinks" },
-  { key: "exterior", label: "Exterior" },
-];
+const filters = galleryTabs;
 
 export default function GalleryGrid() {
-  const [filter, setFilter] = useState<(typeof filters)[number]["key"]>("all");
+  const [filter, setFilter] = useState<string>("all");
   const [open, setOpen] = useState<number | null>(null);
   const items = filter === "all" ? gallery : gallery.filter((g) => g.cat === filter);
 
@@ -63,14 +59,14 @@ export default function GalleryGrid() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: Math.min(i * 0.03, 0.3) }}
-                className={`${g.wide ? "col-span-2" : ""} ${g.tall ? "row-span-2" : ""}`}
+                className={`${g.wide ? "col-span-2" : ""}`}
               >
                 <button
                   type="button"
                   onClick={() => setOpen(i)}
                   data-cursor="View"
                   aria-label={`Open photo: ${g.alt}`}
-                  className="group relative block h-full w-full overflow-hidden rounded-[18px] grain"
+                  className="group relative block h-full w-full overflow-hidden rounded-[18px]"
                 >
                   <m.div layoutId={`photo-${g.src}`} className="absolute inset-0">
                     <Image src={g.src} alt={g.alt} fill sizes={g.wide ? "(min-width:768px) 46vw, 92vw" : "(min-width:768px) 23vw, 46vw"} className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-110" />

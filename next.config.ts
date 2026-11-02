@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["gsap", "framer-motion"],
   },
+  async redirects() {
+    return [{ source: "/locations", destination: "/contact", permanent: true }];
+  },
   async headers() {
     return [
       {

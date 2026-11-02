@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.address)}&output=embed`;
+const mapSrc = site.mapEmbed;
 
 export default function ContactPage() {
   return (

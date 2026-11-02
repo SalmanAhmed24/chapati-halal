@@ -46,7 +46,7 @@ export default function Header() {
         >
           <Link href="/" className="relative z-[60] block w-[104px] sm:w-[118px]">
             <span className="sr-only">Chapati Halal home</span>
-            <Logo tone={open || light ? "light" : "dark"} />
+            <Logo tone={open || light ? "light" : "dark"} priority />
           </Link>
 
           <nav aria-label="Primary" className="hidden lg:block">

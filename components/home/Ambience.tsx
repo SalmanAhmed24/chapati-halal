@@ -40,7 +40,7 @@ export default function Ambience() {
             Join us for a memorable dining experience with delicious food, friendly service and a cosy, lantern-lit atmosphere.
           </p>
           <div className="mt-8">
-            <Button href="/locations" variant="cream">
+            <Button href="/contact" variant="cream">
               Visit Our Location
             </Button>
           </div>

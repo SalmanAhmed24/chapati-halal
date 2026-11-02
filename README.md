@@ -20,8 +20,7 @@ Requires Node 20+. Deploys to Vercel with zero config.
 | `/about`     | Story, mission & values, ingredients, chef's philosophy |
 | `/menu`      | Sticky category bar with scroll-spy, veg-only filter, dish cards |
 | `/catering`  | Catering hero, occasions, tabbed catering menu, packages, how-it-works, quote request form (`/api/catering`) |
-| `/gallery`   | Filterable masonry grid with a shared-element lightbox (keyboard: ← → Esc) |
-| `/locations` | Medellín location (address, hours, phone, directions) beside a message form |
+| `/gallery`   | All menu photos, filterable by the same categories as the menu, with a lightbox (keyboard: ← → Esc) |
 | `/contact`   | Hero, Google map beside the contact form (`/api/contact`, emails the inbox), opening hours with today highlighted |
 
 ## Motion system
